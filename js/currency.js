@@ -1,6 +1,6 @@
 class CurrencyConverter {
     constructor() {
-        this.API_KEY = 'cur_live_D50YxCndf4376lO5a57F2Fok8RVSRz4zV7sLu5q0';
+        this.API_KEY = 'cur_live_hG84kRlaxy2IzHm3Bd5zwMQyp6elfRduzr2zvUdF';
         this.BASE_URL = 'https://api.currencyapi.com/v3';
         
         // Get DOM elements
