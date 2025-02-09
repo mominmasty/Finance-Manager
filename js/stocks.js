@@ -1,6 +1,6 @@
 export class StockManager {
     constructor() {
-        this.apiKey = 'e5f7948fc2msh686590e3490ead7p1c1efbjsn4e7298afa7c4';
+        this.apiKey = '4e5e4e1391msh1a547aec78720e3p104206jsn98be1f46f8b4';
         this.searchBtn = document.getElementById('search-stock-btn');
         this.stockSymbolInput = document.getElementById('stock-symbol');
         this.stockData = document.getElementById('stock-data');
