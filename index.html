@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Manager</title>
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- Theme Switcher -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Auth Container -->
+    <div id="auth-container" class="container">
+        <div class="auth-form">
+            <h2>Welcome to Personal Finance Manager</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <p>Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+            </form>
+            <form id="signup-form" style="display: none;">
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <input type="password" id="signup-confirm-password" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
+                <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main App Container (Initially Hidden) -->
+    <div id="app-container" class="container" style="display: none;">
+        <header>
+            <h1>Personal Finance Manager</h1>
+            <div class="header-controls">
+                <button id="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <main>
+
+            <!-- Expense Tracking Section -->
+            <section id="expense-section">
+                <h2>Expense Tracker</h2>
+                <form id="expense-form">
+                    <input type="number" id="expense-amount" placeholder="Amount" required>
+                    <select id="expense-category" required>
+                        <option value="">Select Category</option>
+                        <option value="food">Food</option>
+                        <option value="transport">Transport</option>
+                        <option value="utilities">Utilities</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input type="date" id="expense-date" required>
+                    <button type="submit">Add Expense</button>
+                </form>
+                <div id="expenses-table"></div>
+            </section>
+
+            <!-- Budget Section -->
+            <section id="budget-section">
+                <h2>Budget Overview</h2>
+                <div class="budget-container">
+                    <div class="budget-header">
+                        <h3>Monthly Budget</h3>
+                        <input type="number" id="budget-input" placeholder="Enter budget amount">
+                        <button id="set-budget-btn">Set Budget</button>
+                    </div>
+
+                    <div class="budget-progress">
+                        <div id="budget-bar" class="budget-progress-bar"></div>
+                        <span id="budget-percentage">0%</span>
+                    </div>
+
+                    <div id="budget-warning" class="budget-warning"></div>
+
+                    <div class="budget-info">
+                        <span id="budget-spent">Spent: ₹0</span>
+                        <span id="budget-remaining">Remaining: ₹0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stock Market Section -->
+            <section id="stock-section">
+                <h2>Stock Monitor</h2>
+                <div class="stock-search">
+                    <input type="text" id="stock-symbol" placeholder="Enter Stock Symbol">
+                    <button id="search-stock-btn">Search</button>
+                </div>
+                <div id="stock-data"></div>
+                <canvas id="stock-chart"></canvas>
+            </section>
+
+            <!-- Currency Converter Section -->
+            <h2>Currency Converter</h2>
+            <input type="number" id="amount" placeholder="Enter amount">
+            <select id="fromCurrency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="INR">INR</option>
+                <option value="GBP">GBP</option>
+            </select>
+            <select id="toCurrency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="INR">INR</option>
+                <option value="GBP">GBP</option>
+            </select>
+            <button id="convert-btn">Convert</button>
+            <p id="result"></p>
+
+            <!-- Export Section -->
+            <section id="export-section">
+                <h2>Export Data</h2>
+                <button id="export-csv">Export to CSV</button>
+            </section>
+        </main>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script src="./js/auth.js" type="module"></script>
+    <script src="./js/budget.js" type="module"></script>
+    <script src="./js/expenses.js" type="module"></script>
+    <script src="./js/stocks.js" type="module"></script>
+    <script src="./js/export.js" type="module"></script>
+    <script src="./js/currency.js" type="module" defer></script>
+</body>
+
+</html>
